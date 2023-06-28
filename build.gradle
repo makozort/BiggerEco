@@ -6,8 +6,8 @@ plugins {
 }
 
 version = '0.0.1-1.19'
-group = 'net.kaupenjoe.tutorialmod' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'tutorialmod'
+group = 'net.makozort.biggereco' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = 'biggereco'
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -27,7 +27,7 @@ minecraft {
     //
     // Use non-default mappings at your own risk. They may not always work.
     // Simply re-run your setup task after changing the mappings to update your workspace.
-    mappings channel: 'parchment', version: '2022.12.18-1.19.3'
+    mappings channel: 'parchment', version: '2022.08.14-1.19.2'
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
 
@@ -50,10 +50,10 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
-            property 'forge.enabledGameTestNamespaces', 'tutorialmod'
+            property 'forge.enabledGameTestNamespaces', 'biggereco'
 
             mods {
-                tutorialmod {
+                biggereco {
                     source sourceSets.main
                 }
             }
@@ -66,10 +66,10 @@ minecraft {
 
             property 'forge.logging.console.level', 'debug'
 
-            property 'forge.enabledGameTestNamespaces', 'tutorialmod'
+            property 'forge.enabledGameTestNamespaces', 'biggereco'
 
             mods {
-                tutorialmod {
+                biggereco {
                     source sourceSets.main
                 }
             }
@@ -85,10 +85,10 @@ minecraft {
 
             property 'forge.logging.console.level', 'debug'
 
-            property 'forge.enabledGameTestNamespaces', 'tutorialmod'
+            property 'forge.enabledGameTestNamespaces', 'biggereco'
 
             mods {
-                tutorialmod {
+                biggereco {
                     source sourceSets.main
                 }
             }
@@ -102,10 +102,10 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', 'tutorialmod', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', 'biggereco', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
-                tutorialmod {
+                biggereco {
                     source sourceSets.main
                 }
             }
@@ -133,14 +133,13 @@ repositories {
             includeGroup "curse.maven"
         }
     }
-    maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
 }
 
 dependencies {
     // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft', it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:1.19.3-44.1.5'
+    minecraft 'net.minecraftforge:forge:1.19.2-43.1.3'
 
     // compile against the JEI API but do not include it at runtime
     // compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}"))
@@ -150,7 +149,6 @@ dependencies {
 
     // runtimeOnly fg.deobf("curse.maven:mekanism-268560:3922056")
 
-    implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19.3:4.0.3')
 
     // Real mod deobf dependency examples - these get remapped to your current mappings
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") // Adds JEI API as a compile dependency
@@ -169,12 +167,12 @@ dependencies {
 jar {
     manifest {
         attributes([
-                "Specification-Title"     : "tutorialmod",
-                "Specification-Vendor"    : "tutorialmodsareus",
+                "Specification-Title"     : "biggereco",
+                "Specification-Vendor"    : "biggerecosareus",
                 "Specification-Version"   : "1", // We are version 1 of ourselves
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "tutorialmodsareus",
+                "Implementation-Vendor"   : "biggerecosareus",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
